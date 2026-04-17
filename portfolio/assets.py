@@ -1,11 +1,4 @@
-def calculate_portfolio_value(portfolio: dict) -> float:
-    total = 0
-    for asset in portfolio["assets"]:
-        total += calculate_asset_value(asset)
-    return total
-
-def calculate_asset_value(asset: dict) -> float:
-    return asset["price"] * asset["quantity"]
+from portfolio import metrics
 
 def make_asset(ticker: str, price: float, quantity: int) -> dict:
     return {
@@ -15,4 +8,4 @@ def make_asset(ticker: str, price: float, quantity: int) -> dict:
     }
 
 def get_asset_value(asset: dict) -> float:
-    return calculate_asset_value(asset)
+    return metrics.calculate_asset_value(asset)
